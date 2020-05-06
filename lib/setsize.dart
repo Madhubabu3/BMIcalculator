@@ -27,7 +27,8 @@ class SetSize {
   static void init(BuildContext context,
       {num width = defaultWidth,
       num height = defaultHeight,
-      bool allowFontScaling = false}) {
+      bool allowFontScaling = false}
+      ) {
     if (_instance == null) {
       _instance = SetSize._();
     }

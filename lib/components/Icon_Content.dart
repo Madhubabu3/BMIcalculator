@@ -1,5 +1,7 @@
 import 'package:bmicaliculatorapp/components/constants.dart';
+import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:flutter/material.dart';
+import 'Text_widgt.dart';
 
 
 class IconContent extends StatelessWidget {
@@ -17,8 +19,9 @@ class IconContent extends StatelessWidget {
         SizedBox(
           height: 10.0,
         ),
-        Text(name,style: KLabelTextStyle
-        ),
+        // Text(name,style: KLabelTextStyle
+        // ),
+        TextWidget(text: name, fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,)
       ],
     );
   }

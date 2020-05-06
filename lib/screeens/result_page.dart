@@ -1,3 +1,4 @@
+import 'package:bmicaliculatorapp/components/Text_widgt.dart';
 import 'package:bmicaliculatorapp/components/bottom_Botton.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
 import 'package:bmicaliculatorapp/screeens/details_page.dart';
@@ -19,14 +20,7 @@ class ResultPage extends StatelessWidget {
     print("------>>>>>>>>>$height");
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'YOUR BMI RESULTS',
-          style:  TextStyle(
-fontFamily: "Roboto",
-fontSize: SetSize().setFont(22),
-fontWeight: FontWeight.bold
-                          ),
-        ),
+        title: TextWidget(text: "YOUR BMI RESULTS", fontsize: SetSize().setFont(22), font: FontWeight.w500,),
       ),
       body: ListView(
         children: <Widget>[
@@ -55,31 +49,19 @@ fontWeight: FontWeight.bold
                         top: MediaQuery.of(context).size.height / 8 + 10),
                     child: Column(
                       children: <Widget>[
-                        Text(
-                          obj.resultTitle.toUpperCase(),
-                          style: kResultTextStyle,
-                          textAlign: TextAlign.center,
-                        ),
+                        TextWidget(text: obj.resultTitle.toUpperCase(), fontsize: SetSize().setFont(25), font: FontWeight.w500),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 9,
                         ),
-                        Text(
-                          obj.resultBMI,
-                          style: TextStyle(
-fontFamily: "Roboto",
-fontSize: SetSize().setFont(80),
-fontWeight: FontWeight.bold
-                          ),
-
-                        ),
+                        TextWidget(text: obj.resultBMI, fontsize: SetSize().setFont(85), font: FontWeight.bold),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 9,
                         ),
-                        Text(
-                          obj.interpretation,
-                          style: kBodyTextStyle,
-                          textAlign: TextAlign.center,
-                        ),
+                        // Center(
+                        Container(
+                          padding: EdgeInsets.only(left:15,right:15),
+                          child: TextWidget(text: obj.interpretation, fontsize: SetSize().setFont(18), font: FontWeight.normal,textAlign: TextAlign.center,)),
+                        // ),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 8,
                         ),
@@ -90,11 +72,7 @@ fontWeight: FontWeight.bold
                             child: RaisedButton(
                                 textColor: Colors.white,
                                 color: Colors.blueGrey[600],
-                                child: Text(
-                                  'Details',
-                                  textAlign: TextAlign.center,
-                                  style: KBtnTextStyle,
-                                ),
+                                child: TextWidget(text: "Details", fontsize: SetSize().setFont(25), font: FontWeight.w500),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(30.0),
                                 ),
@@ -142,3 +120,4 @@ fontWeight: FontWeight.bold
     );
   }
 }
+

@@ -1,3 +1,5 @@
+import 'package:bmicaliculatorapp/components/Text_widgt.dart';
+import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:bmicaliculatorapp/utils/caliculation.dart';
 import 'package:bmicaliculatorapp/components/Icon_Content.dart';
 import 'package:bmicaliculatorapp/components/Reusable_Card.dart';
@@ -30,15 +32,15 @@ class _InputPageState extends State<InputPage> {
       "https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_business-512.png";
   String femaleUrl =
       "https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_female_business-512.png";
+  MediaQueryData queryData;
 
   @override
   Widget build(BuildContext context) {
+    queryData = MediaQuery.of(context);
+    SetSize.init(context, width: queryData.size.width, height: queryData.size.height, allowFontScaling: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Helth Care Checker",
-          style: KBtnTextStyle,
-        ),
+        title: TextWidget(text: "Helth Care Checker", fontsize: SetSize().setFont(22), font: FontWeight.w500)
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,23 +92,17 @@ class _InputPageState extends State<InputPage> {
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
-                      "HEIGHT",
-                      style: KLabelTextStyle,
-                    ),
+                    TextWidget(text: "HEIGHT", fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       children: <Widget>[
-                        Text(
-                          height.toString(),
-                          style: KNumbeeTextStyle,
-                        ),
+                        TextWidget(text: height.toString(), fontsize: SetSize().setFont(30), font: FontWeight.bold),
                         // AutoSizeText(
                         //   height.toString(),style: KNumbeeTextStyle,
                         // ),
-                        Text("cm", style: KLabelTextStyle)
+                    TextWidget(text: "cm",fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
                       ],
                     ),
                     Slider(
@@ -132,21 +128,16 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    "WEIGHT",
-                    style: KLabelTextStyle,
-                  ),
+                                     TextWidget(text: "WEIGHT",fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: <Widget>[
-                      FittedBox(
-                          child: Text(
-                        weight.toString(),
-                        style: KNumbeeTextStyle,
-                      )),
-                      Text("Kg", style: KLabelTextStyle)
+                                          TextWidget(text: weight.toString(), fontsize: SetSize().setFont(30), font: FontWeight.bold),
+
+                    TextWidget(text: "kg",fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
                     ],
                   ),
                   Slider(
@@ -190,10 +181,7 @@ class _InputPageState extends State<InputPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          "AGE",
-                          style: KLabelTextStyle,
-                        ),
+                         TextWidget(text: "AGE", fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
                         Text(
                           age.toString(),
                           style: KNumbeeTextStyle,

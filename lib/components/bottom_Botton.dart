@@ -1,4 +1,5 @@
-import 'package:bmicaliculatorapp/components/constants.dart';
+import 'package:bmicaliculatorapp/components/Text_widgt.dart';
+import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,9 +15,9 @@ class BottomButton extends StatelessWidget {
       onTap: onpress,
         child: Container(
         child: Center(
-          child : Text(title,style: kLargeButtonTextStyle,),
+          child : TextWidget(text: title, fontsize: SetSize().setFont(25), font: FontWeight.bold),
         ),
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.only(bottom:5),
         // margin: EdgeInsets.only(bottom: 10.0),
         width: double.infinity,
         height: MediaQuery.of(context).size.height/11,

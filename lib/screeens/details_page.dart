@@ -1,10 +1,12 @@
 import 'package:bmicaliculatorapp/components/Reusable_Card.dart';
+import 'package:bmicaliculatorapp/components/Text_widgt.dart';
 import 'package:bmicaliculatorapp/components/bottom_Botton.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
 import 'package:bmicaliculatorapp/components/row-Details.dart';
 import 'package:bmicaliculatorapp/screeens/input_page.dart';
 import 'package:bmicaliculatorapp/screeens/precautionsList_page.dart';
 import 'package:bmicaliculatorapp/screeens/precautions_page.dart';
+import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:bmicaliculatorapp/utils/Models.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class DeatailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Details', style: KBtnTextStyle),
+        title: TextWidget(text: "YOUR DETAILS", fontsize: SetSize().setFont(22), font: FontWeight.w500),
       ),
       body: SingleChildScrollView(
         child: Column(

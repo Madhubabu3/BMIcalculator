@@ -1,7 +1,9 @@
+import 'package:bmicaliculatorapp/components/Text_widgt.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
 import 'package:bmicaliculatorapp/screeens/causesList_page.dart';
 import 'package:bmicaliculatorapp/screeens/precautionsList_page.dart';
 import 'package:bmicaliculatorapp/screeens/risksList-page.dart';
+import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:flutter/material.dart';
 
 class PrecautionsPage extends StatefulWidget {
@@ -15,7 +17,6 @@ class PrecautionsState extends State<PrecautionsPage>
     with SingleTickerProviderStateMixin {
       PrecautionsState({@required this.status});
         final String status;
-
   TabController _tabController;
 
 
@@ -29,26 +30,22 @@ class PrecautionsState extends State<PrecautionsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "$status Deatils",
-          textAlign: TextAlign.center,
-          style: KBtnTextStyle,
-        ),
+        title: TextWidget(text: "$status Details", fontsize: SetSize().setFont(22), font: FontWeight.w500),
         elevation: 0.7,
         bottom: TabBar(
-          unselectedLabelColor: Colors.blue,
-            labelColor: Colors.red,
+          // unselectedLabelColor: Colors.blue,
+          //   labelColor: Colors.red,
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
             Tab(
-              child: Text("RISKS", style: KTabKeyStyle),
+              child: TextWidget(text: "RISKS", fontsize: SetSize().setFont(14), font: FontWeight.bold),
             ),
             Tab(
-              child: Text("CAUSES", style: KTabKeyStyle),
+              child: TextWidget(text: "CAUSES", fontsize: SetSize().setFont(14), font: FontWeight.bold),
             ),
             Tab(
-              child: Text("PRECAUTION", style: KTabKeyStyle),
+              child: TextWidget(text: "PRECAUTIONS", fontsize: SetSize().setFont(13.5), font: FontWeight.bold),
             ),
           ],
         ),
