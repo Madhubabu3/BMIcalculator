@@ -1,19 +1,31 @@
 import 'package:bmicaliculatorapp/components/bottom_Botton.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
 import 'package:bmicaliculatorapp/screeens/details_page.dart';
+import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:bmicaliculatorapp/utils/Models.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
   final PersonDetails obj;
   ResultPage({this.obj});
+  MediaQueryData queryData;
   @override
   Widget build(BuildContext context) {
+
+    queryData = MediaQuery.of(context);
+    SetSize.init(context, width: queryData.size.width, height: queryData.size.height, allowFontScaling: false);
+
+    double height = queryData.size.height/10;
+    print("------>>>>>>>>>$height");
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'YOUR BMI RESULTS',
-          style: KBtnTextStyle,
+          style:  TextStyle(
+fontFamily: "Roboto",
+fontSize: SetSize().setFont(22),
+fontWeight: FontWeight.bold
+                          ),
         ),
       ),
       body: ListView(
@@ -53,7 +65,12 @@ class ResultPage extends StatelessWidget {
                         ),
                         Text(
                           obj.resultBMI,
-                          style: kBMITextStyle,
+                          style: TextStyle(
+fontFamily: "Roboto",
+fontSize: SetSize().setFont(80),
+fontWeight: FontWeight.bold
+                          ),
+
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 9,
