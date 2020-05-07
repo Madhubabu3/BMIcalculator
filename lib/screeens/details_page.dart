@@ -4,6 +4,7 @@ import 'package:bmicaliculatorapp/components/bottom_Botton.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
 import 'package:bmicaliculatorapp/components/row-Details.dart';
 import 'package:bmicaliculatorapp/screeens/input_page.dart';
+import 'package:bmicaliculatorapp/screeens/normal_precautions_page.dart';
 import 'package:bmicaliculatorapp/screeens/precautionsList_page.dart';
 import 'package:bmicaliculatorapp/screeens/precautions_page.dart';
 import 'package:bmicaliculatorapp/setsize.dart';
@@ -80,7 +81,7 @@ class DeatailsPage extends StatelessWidget {
               cardChild: Center(child: Text("Click Here to know your helth precautions",textAlign: TextAlign.center,style: KBtnTextStyle,)),
               onPress: (){
                 if(detailsobj.resultTitle == "Normal"){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> PrecautionsListpage()),);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> NormalPrecautions()),);
                 }else {
                   Navigator.push(
                     context,
