@@ -7,7 +7,7 @@ import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:flutter/material.dart';
 
 class PrecautionsPage extends StatefulWidget {
- const PrecautionsPage({ @required this.status});
+  const PrecautionsPage({@required this.status});
   final String status;
   @override
   PrecautionsState createState() => PrecautionsState(status: status);
@@ -15,10 +15,9 @@ class PrecautionsPage extends StatefulWidget {
 
 class PrecautionsState extends State<PrecautionsPage>
     with SingleTickerProviderStateMixin {
-      PrecautionsState({@required this.status});
-        final String status;
+  PrecautionsState({@required this.status});
+  final String status;
   TabController _tabController;
-
 
   @override
   void initState() {
@@ -30,7 +29,10 @@ class PrecautionsState extends State<PrecautionsPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextWidget(text: "$status Details", fontsize: SetSize().setFont(22), font: FontWeight.w500),
+        title: TextWidget(
+            text: "$status Details",
+            fontsize: SetSize().setFont(22),
+            font: FontWeight.w500),
         elevation: 0.7,
         bottom: TabBar(
           // unselectedLabelColor: Colors.blue,
@@ -39,13 +41,22 @@ class PrecautionsState extends State<PrecautionsPage>
           indicatorColor: Colors.white,
           tabs: <Widget>[
             Tab(
-              child: TextWidget(text: "RISKS", fontsize: SetSize().setFont(14), font: FontWeight.bold),
+              child: TextWidget(
+                  text: "RISKS",
+                  fontsize: SetSize().setFont(14),
+                  font: FontWeight.bold),
             ),
             Tab(
-              child: TextWidget(text: "CAUSES", fontsize: SetSize().setFont(14), font: FontWeight.bold),
+              child: TextWidget(
+                  text: "CAUSES",
+                  fontsize: SetSize().setFont(14),
+                  font: FontWeight.bold),
             ),
             Tab(
-              child: TextWidget(text: "PRECAUTIONS", fontsize: SetSize().setFont(13.5), font: FontWeight.bold),
+              child: TextWidget(
+                  text: "PRECAUTIONS",
+                  fontsize: SetSize().setFont(13.5),
+                  font: FontWeight.bold),
             ),
           ],
         ),
@@ -53,9 +64,15 @@ class PrecautionsState extends State<PrecautionsPage>
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          RisksListpage(),
-          CausesListpage(),
-          PrecautionsListpage(),
+          RisksListpage(
+            status: status,
+          ),
+          CausesListpage(
+            status: status,
+          ),
+          PrecautionsListpage(
+            status: status,
+          ),
         ],
       ),
     );

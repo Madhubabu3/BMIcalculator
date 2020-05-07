@@ -2,15 +2,13 @@ import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:flutter/material.dart';
 
 const KBottomContainerHeight = 70.0;
-const KActiveCardColor = Color.fromRGBO(35, 35, 50, 0.8); //Color(0xFF1D1E33);
+const KActiveCardColor = Color.fromRGBO(40, 40, 60, 0.8); //Color(0xFF1D1E33);
 const KInActiveCardColor = Color.fromRGBO(23, 26, 25, 0.5); //Color(0xFF111326);
 const KBottomContainerColor = Color(0xFF2196F3); //Colors.blue;
+const KContainerColor = Color.fromRGBO(40, 40, 70, 1.0);
 
+//  SetSize.init(context, width: 750, height: 1334, allowFontScaling: false);
 
-			  //  SetSize.init(context, width: 750, height: 1334, allowFontScaling: false);
-
-		
-    
 const KLabelTextStyle = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 18.0,

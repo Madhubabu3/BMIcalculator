@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SetSize {
@@ -27,8 +26,7 @@ class SetSize {
   static void init(BuildContext context,
       {num width = defaultWidth,
       num height = defaultHeight,
-      bool allowFontScaling = false}
-      ) {
+      bool allowFontScaling = false}) {
     if (_instance == null) {
       _instance = SetSize._();
     }
@@ -62,8 +60,9 @@ class SetSize {
 
   num setWidth(num width) => width * scaleWidth;
   num setHeight(num height) => height * scaleHeight;
-  num setFont(num fontSize) => allowFontSaclling ? (fontSize * scaleText)
-              : (fontSize * scaleText) / _textScaleFactor;
+  num setFont(num fontSize) => allowFontSaclling
+      ? (fontSize * scaleText)
+      : (fontSize * scaleText) / _textScaleFactor;
 
   // num setFont(
   //         num fontSize, bool allowFontSacllingSelf) =>
@@ -73,5 +72,5 @@ class SetSize {
   //             : (fontSize * scaleText) / _textScaleFactor)
   //         : (allowFontSaclling
   //             ? (fontSize * scaleText)
-              // : (fontSize * scaleText) / _textScaleFactor);
+  // : (fontSize * scaleText) / _textScaleFactor);
 }

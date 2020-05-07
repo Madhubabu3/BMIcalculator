@@ -2,7 +2,6 @@ import 'package:bmicaliculatorapp/components/Text_widgt.dart';
 import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:flutter/material.dart';
 
-
 class BottomButton extends StatelessWidget {
   BottomButton({@required this.title, @required this.onpress, this.btnColor});
   final Function onpress;
@@ -13,14 +12,17 @@ class BottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onpress,
-        child: Container(
+      child: Container(
         child: Center(
-          child : TextWidget(text: title, fontsize: SetSize().setFont(25), font: FontWeight.bold),
+          child: TextWidget(
+              text: title,
+              fontsize: SetSize().setFont(25),
+              font: FontWeight.bold),
         ),
-        padding: EdgeInsets.only(bottom:5),
+        padding: EdgeInsets.only(bottom: 5),
         // margin: EdgeInsets.only(bottom: 10.0),
         width: double.infinity,
-        height: MediaQuery.of(context).size.height/11,
+        height: MediaQuery.of(context).size.height / 11,
         color: btnColor,
       ),
     );

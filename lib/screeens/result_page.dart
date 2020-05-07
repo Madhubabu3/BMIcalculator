@@ -1,3 +1,4 @@
+import 'package:bmicaliculatorapp/components/RoundRised_Button.dart';
 import 'package:bmicaliculatorapp/components/Text_widgt.dart';
 import 'package:bmicaliculatorapp/components/bottom_Botton.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
@@ -12,15 +13,20 @@ class ResultPage extends StatelessWidget {
   MediaQueryData queryData;
   @override
   Widget build(BuildContext context) {
-
     queryData = MediaQuery.of(context);
-    SetSize.init(context, width: queryData.size.width, height: queryData.size.height, allowFontScaling: false);
-
-    double height = queryData.size.height/10;
-    print("------>>>>>>>>>$height");
+    SetSize.init(context,
+        width: queryData.size.width,
+        height: queryData.size.height,
+        allowFontScaling: false);
+    print("--------->>>>>>");
+    print(obj.height);
     return Scaffold(
       appBar: AppBar(
-        title: TextWidget(text: "YOUR BMI RESULTS", fontsize: SetSize().setFont(22), font: FontWeight.w500,),
+        title: TextWidget(
+          text: "YOUR BMI RESULTS",
+          fontsize: SetSize().setFont(22),
+          font: FontWeight.w500,
+        ),
       ),
       body: ListView(
         children: <Widget>[
@@ -49,18 +55,30 @@ class ResultPage extends StatelessWidget {
                         top: MediaQuery.of(context).size.height / 8 + 10),
                     child: Column(
                       children: <Widget>[
-                        TextWidget(text: obj.resultTitle.toUpperCase(), fontsize: SetSize().setFont(25), font: FontWeight.w500),
+                        TextWidget(
+                            text: obj.resultTitle.toUpperCase(),
+                            fontsize: SetSize().setFont(25),
+                            font: FontWeight.w500,
+                            color: obj.resultTitle=="Normal"? Colors.green :obj.resultTitle=="Underweight" ? Colors.orange : Colors.red,),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 9,
                         ),
-                        TextWidget(text: obj.resultBMI, fontsize: SetSize().setFont(85), font: FontWeight.bold),
+                        TextWidget(
+                            text: obj.resultBMI,
+                            fontsize: SetSize().setFont(85),
+                            font: FontWeight.bold),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 9,
                         ),
                         // Center(
                         Container(
-                          padding: EdgeInsets.only(left:15,right:15),
-                          child: TextWidget(text: obj.interpretation, fontsize: SetSize().setFont(18), font: FontWeight.normal,textAlign: TextAlign.center,)),
+                            padding: EdgeInsets.only(left: 15, right: 15),
+                            child: TextWidget(
+                              text: obj.interpretation,
+                              fontsize: SetSize().setFont(18),
+                              font: FontWeight.normal,
+                              textAlign: TextAlign.center,
+                            )),
                         // ),
                         SizedBox(
                           height: MediaQuery.of(context).size.width / 8,
@@ -69,22 +87,18 @@ class ResultPage extends StatelessWidget {
                             height: (MediaQuery.of(context).size.width / 7),
                             width: (MediaQuery.of(context).size.height / 3),
                             padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                            child: RaisedButton(
-                                textColor: Colors.white,
-                                color: Colors.blueGrey[600],
-                                child: TextWidget(text: "Details", fontsize: SetSize().setFont(25), font: FontWeight.w500),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(30.0),
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DeatailsPage(
-                                              detailsobj: obj,
-                                            )),
-                                  );
-                                })),
+                            child: RoundRisedButton(
+                              onpress: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DeatailsPage(
+                                            detailsobj: obj,
+                                          )),
+                                );
+                              },
+                              title: "Details", color: KContainerColor,
+                            )),
                       ],
                     ),
                   )),
@@ -120,4 +134,5 @@ class ResultPage extends StatelessWidget {
     );
   }
 }
+
 

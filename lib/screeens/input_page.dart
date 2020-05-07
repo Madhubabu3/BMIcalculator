@@ -37,11 +37,16 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     queryData = MediaQuery.of(context);
-    SetSize.init(context, width: queryData.size.width, height: queryData.size.height, allowFontScaling: false);
+    SetSize.init(context,
+        width: queryData.size.width,
+        height: queryData.size.height,
+        allowFontScaling: false);
     return Scaffold(
       appBar: AppBar(
-        title: TextWidget(text: "Helth Care Checker", fontsize: SetSize().setFont(22), font: FontWeight.w500)
-      ),
+          title: TextWidget(
+              text: "Helth Care Checker",
+              fontsize: SetSize().setFont(22),
+              font: FontWeight.w500)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -92,17 +97,30 @@ class _InputPageState extends State<InputPage> {
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    TextWidget(text: "HEIGHT", fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
+                    TextWidget(
+                      text: "HEIGHT",
+                      fontsize: SetSize().setFont(18),
+                      font: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       children: <Widget>[
-                        TextWidget(text: height.toString(), fontsize: SetSize().setFont(30), font: FontWeight.bold),
+                        TextWidget(
+                            text: height.toString(),
+                            fontsize: SetSize().setFont(30),
+                            font: FontWeight.bold),
                         // AutoSizeText(
                         //   height.toString(),style: KNumbeeTextStyle,
                         // ),
-                    TextWidget(text: "cm",fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
+                        TextWidget(
+                          text: "cm",
+                          fontsize: SetSize().setFont(18),
+                          font: FontWeight.w500,
+                          color: Colors.grey,
+                        ),
                       ],
                     ),
                     Slider(
@@ -128,16 +146,27 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                                     TextWidget(text: "WEIGHT",fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
-
+                  TextWidget(
+                    text: "WEIGHT",
+                    fontsize: SetSize().setFont(18),
+                    font: FontWeight.w500,
+                    color: Colors.grey,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: <Widget>[
-                                          TextWidget(text: weight.toString(), fontsize: SetSize().setFont(30), font: FontWeight.bold),
-
-                    TextWidget(text: "kg",fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
+                      TextWidget(
+                          text: weight.toString(),
+                          fontsize: SetSize().setFont(30),
+                          font: FontWeight.bold),
+                      TextWidget(
+                        text: "kg",
+                        fontsize: SetSize().setFont(18),
+                        font: FontWeight.w500,
+                        color: Colors.grey,
+                      ),
                     ],
                   ),
                   Slider(
@@ -181,7 +210,12 @@ class _InputPageState extends State<InputPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                         TextWidget(text: "AGE", fontsize: SetSize().setFont(18), font: FontWeight.w500,color: Colors.grey,),
+                        TextWidget(
+                          text: "AGE",
+                          fontsize: SetSize().setFont(18),
+                          font: FontWeight.w500,
+                          color: Colors.grey,
+                        ),
                         Text(
                           age.toString(),
                           style: KNumbeeTextStyle,
@@ -217,8 +251,7 @@ class _InputPageState extends State<InputPage> {
                   String bmi = cal.getBMIStauts();
                   String intr = cal.getInterpretation();
                   String result = cal.getResult();
-                  print("....$bmi....$intr,,,,,$result");
-                  final data = PersonDetails(
+                  final data1 = PersonDetails(height: height,
                       resultBMI: bmi,
                       interpretation: intr,
                       resultTitle: result,
@@ -227,11 +260,11 @@ class _InputPageState extends State<InputPage> {
                       imageUrl: url == null ? maleUrl : url,
                       gender:
                           selectedgender == Gender.female ? "Female" : "Male",
-                      height: height);
+                    );
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ResultPage(obj: data),
+                      builder: (context) => ResultPage(obj: data1),
                     ),
                   );
                 },

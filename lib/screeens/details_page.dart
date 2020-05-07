@@ -1,11 +1,11 @@
 import 'package:bmicaliculatorapp/components/Reusable_Card.dart';
+import 'package:bmicaliculatorapp/components/RoundRised_Button.dart';
 import 'package:bmicaliculatorapp/components/Text_widgt.dart';
 import 'package:bmicaliculatorapp/components/bottom_Botton.dart';
 import 'package:bmicaliculatorapp/components/constants.dart';
 import 'package:bmicaliculatorapp/components/row-Details.dart';
 import 'package:bmicaliculatorapp/screeens/input_page.dart';
 import 'package:bmicaliculatorapp/screeens/normal_precautions_page.dart';
-import 'package:bmicaliculatorapp/screeens/precautionsList_page.dart';
 import 'package:bmicaliculatorapp/screeens/precautions_page.dart';
 import 'package:bmicaliculatorapp/setsize.dart';
 import 'package:bmicaliculatorapp/utils/Models.dart';
@@ -14,11 +14,15 @@ import 'package:flutter/material.dart';
 class DeatailsPage extends StatelessWidget {
   final PersonDetails detailsobj;
   DeatailsPage({this.detailsobj});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextWidget(text: "YOUR DETAILS", fontsize: SetSize().setFont(22), font: FontWeight.w500),
+        title: TextWidget(
+            text: "YOUR DETAILS",
+            fontsize: SetSize().setFont(22),
+            font: FontWeight.w500),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -65,44 +69,60 @@ class DeatailsPage extends StatelessWidget {
                     rightText: detailsobj.interpretation,
                   ),
                   SizedBox(height: 15),
-                   
                 ],
               ),
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(40, 40, 70, 1.0),
+                  color: KActiveCardColor,
                   borderRadius: BorderRadius.circular(10)),
             ),
-          
-             Container(
-              
-              height: MediaQuery.of(context).size.height/7,
-              width: MediaQuery.of(context).size.width-15,
-              child: ReusableCard(color: Color.fromRGBO(40, 40, 70, 1.0),
-              cardChild: Center(child: Text("Click Here to know your helth precautions",textAlign: TextAlign.center,style: KBtnTextStyle,)),
-              onPress: (){
-                if(detailsobj.resultTitle == "Normal"){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> NormalPrecautions()),);
-                }else {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            PrecautionsPage(status: detailsobj.resultTitle,
-                            )),
-                  );
-                }
-                                },),
+            SizedBox(
+              height:40,
             ),
             
+            Container(
+                height: (MediaQuery.of(context).size.width / 7),
+                width: (MediaQuery.of(context).size.height / 3),
+                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: RoundRisedButton(
+                  onpress: () {
+                    if (detailsobj.resultTitle == "Normal") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NormalPrecautions()),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PrecautionsPage(
+                                  status: detailsobj.resultTitle,
+                                )),
+                      );
+                    }
+                  },
+                  title: "Click Here", color: KContainerColor,
+                )),
+
+            SizedBox(
+              height:10,
+            ),
+                Container(
+              child: TextWidget(
+                  text: "To know more about your BMI? ",
+                  fontsize: SetSize().setFont(17),
+                  font: FontWeight.normal),
+            ),
           ],
         ),
-        
       ),
-          bottomNavigationBar: BottomButton(
+      bottomNavigationBar: BottomButton(
         title: "RE-CALCULATE",
         onpress: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> InputPage()),);
-           
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => InputPage()),
+          );
         },
         btnColor: KBottomContainerColor,
       ),
