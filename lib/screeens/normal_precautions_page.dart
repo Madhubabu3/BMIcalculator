@@ -27,15 +27,13 @@ class NormalPrecautionsState extends State<NormalPrecautions> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Card(
-              color: Color.fromRGBO(40, 130, 70, 0.6),
+              color: Colors.green[400],
               margin: EdgeInsets.only(left: 15, right: 15, top: 15),
               child: ListTile(
-                title: Text(underWeightprecaution[i].title,
-                    style: KDetailsTextStyle),
+                title: TextWidget(text: normalWeightprecaution[i].title, fontsize: SetSize().setFont(20), font: FontWeight.bold),
                 subtitle: Container(
                   padding: const EdgeInsets.only(top: 10.0),
-                  child: Text(underWeightprecaution[i].text,
-                      style: KListTextstyle),
+                  child: TextWidget(text: normalWeightprecaution[i].text, fontsize: SetSize().setFont(18), font: FontWeight.normal),
                 ),
               ),
             )

@@ -1,10 +1,6 @@
 import 'package:bmicaliculatorapp/screeens/input_page.dart';
 import 'package:flutter/material.dart';
 
-var routes = <String, WidgetBuilder>{
-  "/home": (BuildContext context) => InputPage(),
-};
-
 void main() => runApp(BMICaliculator());
 
 class BMICaliculator extends StatelessWidget {

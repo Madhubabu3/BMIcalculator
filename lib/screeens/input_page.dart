@@ -243,7 +243,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           BottomButton(
-            title: "CALICULATE BMI",
+            title: "CALCULATE BMI",
             onpress: () {
               setState(
                 () {
